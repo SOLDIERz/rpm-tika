@@ -1,0 +1,12 @@
+[Unit]
+Description=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types
+
+[Service]
+User=root
+WorkingDirectory=/opt/tika-1.14
+EnvironmentFile=/etc/sysconfig/tika
+ExecStart=/usr/bin/java $JAVA_OPTS -jar tika-server-1.14.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
